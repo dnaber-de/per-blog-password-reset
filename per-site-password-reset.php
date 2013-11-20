@@ -19,8 +19,9 @@ if ( ! function_exists( 'add_filter' ) || ! function_exists( 'is_multisite' ) )
 if ( ! \is_multisite() )
 	return;
 
-
 add_filter( 'lostpassword_url', __NAMESPACE__ . '\get_lost_password_url', 10, 2 );
+add_filter( 'retrieve_password_message', __NAMESPACE__ . '\get_password_mail_content', 10, 2 );
+
 /**
  * the url to the lost-password dialog
  *
@@ -48,4 +49,22 @@ function get_lost_password_url( $url, $redirect ) {
 	$lp_url = home_url( $path );
 
 	return $lp_url;
+}
+/**
+ * filter the passord message
+ *
+ * @wp-hook retrieve_password_message
+ * @param string $message
+ * @param string $key
+ * @return string
+ */
+function get_password_mail_content( $message, $key ) {
+
+	$message = str_replace(
+		\network_site_url( '/' ),
+		\home_url( '/' ),
+		$message
+	);
+
+	return $message;
 }
