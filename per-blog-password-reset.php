@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Plugin Name: per site password reset
- * Description: Multisite Plugin! Allways using the current blog url when reset the password. Standard behaviour is to lead to the network root url.
- * Plugin URI:
+ * Plugin Name: per blog password reset
+ * Description: Multisite Plugin! Allways using the current blog URL when reset the password. Standard behaviour is to lead to the network root blog URL.
+ * Plugin URI:  https://github.com/dnaber-de/per-blog-password-reset
  * Version:     2012.11.20
  * Author:      David Naber
  * Author URI:  http://dnaber.de/
@@ -11,7 +11,7 @@
  * License URI: http://www.opensource.org/licenses/mit-license.php
  */
 
-namespace Per_Site_Password_Reset;
+namespace Per_Blog_Password_Reset;
 
 if ( ! function_exists( 'add_filter' ) || ! function_exists( 'is_multisite' ) )
 	return;
