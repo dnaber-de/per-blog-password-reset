@@ -44,6 +44,7 @@ if ( ! is_multisite() )
 	return;
 
 add_filter( 'lostpassword_url', __NAMESPACE__ . '\get_lost_password_url', 10, 2 );
+add_filter( 'lostpassword_redirect', __NAMESPACE__ . '\get_login_url', 10, 2 );
 add_filter( 'retrieve_password_message', __NAMESPACE__ . '\get_password_mail_content', 10, 2 );
 
 /**
@@ -91,4 +92,20 @@ function get_password_mail_content( $message, $key ) {
 	);
 
 	return $message;
+}
+
+/**
+ * updates the login url for the current blog if it is not set
+ *
+ * @wp-hook lostpassword_redirect
+ * @param string $url
+ * @return string
+ */
+function get_login_url( $url ) {
+
+	# if there's already a redirect url, don't replace it
+	if ( ! empty ( $uri ) )
+		return $url;
+
+	return home_url( '/wp-login.php' );
 }
