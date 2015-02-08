@@ -75,7 +75,7 @@ function get_lost_password_url( $url, $redirect ) {
 	return $lp_url;
 }
 /**
- * filter the passord message
+ * filter the password message
  *
  * @wp-hook retrieve_password_message
  * @param string $message
