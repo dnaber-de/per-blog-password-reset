@@ -4,7 +4,7 @@
  * Plugin Name: Per Blog Password Reset
  * Description: Multisite Plugin! Allways using the current blog URL when reset the password. Standard behaviour is to lead to the network root blog URL.
  * Plugin URI:  https://github.com/dnaber-de/per-blog-password-reset
- * Version:     2012.11.21
+ * Version:     2014.02.08
  * Author:      David Naber
  * Author URI:  http://dnaber.de/
  * License:     MIT
