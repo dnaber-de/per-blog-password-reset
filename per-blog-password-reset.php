@@ -40,7 +40,7 @@ namespace Per_Blog_Password_Reset;
 if ( ! function_exists( 'add_filter' ) || ! function_exists( 'is_multisite' ) )
 	return;
 
-if ( ! \is_multisite() )
+if ( ! is_multisite() )
 	return;
 
 add_filter( 'lostpassword_url', __NAMESPACE__ . '\get_lost_password_url', 10, 2 );
@@ -85,8 +85,8 @@ function get_lost_password_url( $url, $redirect ) {
 function get_password_mail_content( $message, $key ) {
 
 	$message = str_replace(
-		\network_site_url( '/' ),
-		\home_url( '/' ),
+		network_site_url( '/' ),
+		home_url( '/' ),
 		$message
 	);
 
